@@ -12,9 +12,10 @@ class CreateTipoProductosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_productos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create('tc_tipoproducto', function (Blueprint $table) {
+            $table->bigIncrements('tipoproducto_id');
+            $table->string('descripccion');
+            $table->tinyinteger('estado')->default(1);
         });
     }
 
@@ -25,6 +26,6 @@ class CreateTipoProductosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tipo_productos');
+        Schema::drop('tc_tipoproducto');
     }
 }

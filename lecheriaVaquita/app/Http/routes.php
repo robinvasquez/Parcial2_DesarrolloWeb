@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('usuario', 'Controller',
+                ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
+Route::resource('detallePedido', 'DetallePedidoController',
+                ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
+Route::resource('pedido', 'PedidoController',
+                ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
+Route::resource('producto', 'ProductoController',
+                ['only' => ['index', 'store', 'update', 'destroy', 'show']]);
+Route::resource('tipoproducto', 'TipoProductoController',
+                ['only' => ['index', 'store', 'update', 'destroy', 'show']]);

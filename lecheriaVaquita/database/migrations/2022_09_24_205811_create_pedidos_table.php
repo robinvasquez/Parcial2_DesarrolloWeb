@@ -12,9 +12,14 @@ class CreatePedidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('pedidos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create('tc_pedido', function (Blueprint $table) {
+            $table->bigIncrements('pedido_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('tc_user');
+            $table->tinyinteger('estado')->default(1);
+            $table->datetime('fecha')->useCurrent();
+            $table->string('precio');
+           
         });
     }
 
@@ -25,6 +30,6 @@ class CreatePedidosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pedidos');
+        Schema::drop('tc_pedido');
     }
 }
